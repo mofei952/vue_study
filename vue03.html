@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id='app'>
+            {{ a }}
+        </div>
+
+        <script type="text/javascript">
+            var data = {a: 1}
+            // 使用 Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化。
+            Object.freeze(data)
+            var vm = new Vue({
+                el: '#app',
+                data: data
+            })
+
+            // $el获取el元素
+            console.log(vm.$el === document.getElementById('example'))
+            // $watch方法 观察一个变量的变化，可以获取到变化之前和之后的值
+            vm.$watch('a', function(newVal, oldVal){
+                console.log(newVal, oldVal)
+            })
+            
+            // 3种修改值的方式
+            // data.a = 'new'
+            // vm.a = 'test'
+            vm.$data.a = 'test'
+
+        </script>
+    </body>
+</html>
