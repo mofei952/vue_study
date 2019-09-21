@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <p v-if='seen'>text</p>
+        <a v-bind:href='url'>aaaa</a>
+        <div @click='click1'>
+            <div @click.stop='click2'>
+                click button
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        data = {
+            seen: false,
+            url: 'http://www.baidu.com'
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: data,
+            methods: {
+                click1(){
+                    console.log('click1')
+                },
+                click2(){
+                    console.log('click2')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
