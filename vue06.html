@@ -9,9 +9,14 @@
 
 <body>
     <div id='app'>
+        <!-- v-if指令会根据seen值得真假来插入/移除<p>元素 -->
         <p v-if='seen'>text</p>
+        <!-- v-bind指令能够接收一个参数，参数写在冒号后面 -->
+        <!-- v-bind可以简写为:，如v-bind:href简写为:href -->
         <a v-bind:href='url'>aaaa</a>
+        <!-- v-on指令可以简写为@，如v-on:click简写为@click -->
         <div @click='click1'>
+            <!-- 修饰符是在.后面指明的特殊后缀，stop修饰符可以阻止click事件冒泡 -->
             <div @click.stop='click2'>
                 click button
             </div>
